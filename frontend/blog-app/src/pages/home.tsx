@@ -1,0 +1,30 @@
+import { useEffect, useState } from "react";
+import PostCard from "../components/postcard";
+
+interface Post {
+  id: number;
+  title: string;
+  author: string;
+  createdAt: string;
+}
+
+export default function Home() {
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    // Dummy data dulu
+    setPosts([
+      { id: 1, title: "Belajar React", author: "Dhani", createdAt: "2025-08-29" },
+      { id: 2, title: "TypeScript itu mudah", author: "Kusuma", createdAt: "2025-08-28" },
+    ]);
+  }, []);
+
+  return (
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Latest Posts</h1>
+      {posts.map((post) => (
+        <PostCard key={post.id} {...post} />
+      ))}
+    </div>
+  );
+}
