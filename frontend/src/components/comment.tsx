@@ -11,24 +11,32 @@ export default function Comment() {
   };
 
   return (
-    <div className="mt-4">
+    <div className="mt-6 border rounded-xl p-4 bg-gray-50 shadow-sm">
+      {/* Input */}
       <div className="flex gap-2">
         <input
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Tulis komentar..."
-          className="border px-2 py-1 rounded w-full"
+          className="border px-3 py-2 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-green-400"
         />
         <button
           onClick={handleAdd}
-          className="bg-green-500 text-white px-3 rounded"
+          className="bg-green-500 text-white px-4 py-2 rounded-lg font-medium shadow hover:bg-green-600 transition"
         >
           Kirim
         </button>
       </div>
-      <ul className="mt-2">
+
+      {/* List Komentar */}
+      <ul className="mt-4 space-y-2">
         {comments.map((c, i) => (
-          <li key={i} className="border-b py-1">{c}</li>
+          <li
+            key={i}
+            className="border rounded-lg px-3 py-2 bg-white shadow-sm text-gray-700"
+          >
+            {c}
+          </li>
         ))}
       </ul>
     </div>

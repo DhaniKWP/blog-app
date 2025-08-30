@@ -47,14 +47,13 @@ const colors: { [key: string]: string } = {
   default: "bg-gray-200 text-gray-800",
 };
 
-
 const CategoryBadge: React.FC<CategoryBadgeProps> = ({ label }) => {
   const key = label.toLowerCase();
   const colorClass = colors[key] || colors.default;
 
   return (
     <span
-      className={`px-3 py-1 text-sm font-medium rounded-full ${colorClass}`}
+      className={`px-3 py-1 text-xs font-medium rounded-full cursor-default ${colorClass} hover:opacity-80 transition`}
     >
       {label}
     </span>

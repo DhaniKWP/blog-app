@@ -5,10 +5,10 @@ export default function Like() {
 
   return (
     <button
-      className="px-4 py-2 bg-blue-500 text-white rounded"
       onClick={() => setLikes(likes + 1)}
+      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500 text-white font-medium shadow hover:bg-blue-600 active:scale-95 transition"
     >
-      👍 {likes}
+      👍 <span>{likes}</span>
     </button>
   );
 }
