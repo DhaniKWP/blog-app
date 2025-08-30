@@ -9,8 +9,6 @@ export interface IPost extends Document {
   tags: string[];
   categories?: string[];
   published: boolean;
-  createdAt: Date;
-  updatedAt: Date;
 }
 
 const postSchema = new Schema<IPost>(

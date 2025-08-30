@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import morgan from 'morgan';
-// import routes from './routes';
+import postRouter from './routes/post.routes';
 
 const app = express();
 
@@ -21,7 +21,7 @@ app.use(express.static('public'));
 app.use(morgan('dev'));
 
 // Routes
-// app.use('/', routes);
+app.use('/api/blog/posts', postRouter);
 
 export { app };
 
