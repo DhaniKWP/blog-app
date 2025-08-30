@@ -4,19 +4,25 @@ import PostCard from "../components/postcard";
 interface Post {
   id: number;
   title: string;
+  content: string;
   author: string;
   createdAt: string;
+  categories?: string[];
 }
 
 export default function Home() {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
-    // Dummy data dulu
-    setPosts([
-      { id: 1, title: "Belajar React", author: "Dhani", createdAt: "2025-08-29" },
-      { id: 2, title: "TypeScript itu mudah", author: "Kusuma", createdAt: "2025-08-28" },
-    ]);
+    const savedPosts = JSON.parse(localStorage.getItem("posts") || "[]");
+
+    // Dummy data awal
+    // const dummyPosts: Post[] = [
+    //   { id: 1, title: "Belajar React", content: "Isi konten React...", author: "Dhani", createdAt: "2025-08-29", categories: ["laravel", "kotlin"] },
+    //   { id: 2, title: "TypeScript itu mudah", content: "Isi konten TS...", author: "Kusuma", createdAt: "2025-08-28", categories: ["react", "typescript"] },
+    // ];
+
+    setPosts([...savedPosts]);
   }, []);
 
   return (
