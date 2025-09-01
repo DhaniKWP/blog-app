@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "routes": [
+    { "source": "/api/users/(.*)", "destination": "/api/users.ts" },
+    { "source": "/api/posts/(.*)", "destination": "/api/posts.ts" }
+  ],
+  "builds": [
+    {
+      "src": "api/users.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/posts.ts",
+      "use": "@vercel/node"
+    }
+  ]
+}
